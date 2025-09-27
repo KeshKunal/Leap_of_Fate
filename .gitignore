@@ -1,0 +1,23 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+addons/gut/
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+# General ignores
+*.o
+*.lo
+*.la
+*.pyc
+*.pyo
+*.swp
+*~
+.DS_Store
