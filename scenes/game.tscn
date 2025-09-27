@@ -24,15 +24,6 @@ zoom = Vector2(4, 4)
 limit_bottom = 180
 position_smoothing_enabled = true
 
-[node name="mushroom" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(216, -40)
-
-[node name="mushroom2" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(801, -67)
-
-[node name="mushroom3" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(1373, -88)
-
 [node name="Killzone" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(121, -3)
 
@@ -52,3 +43,14 @@ position = Vector2(534, 17)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("3_lnu2h")]
 position = Vector2(332, 15)
+
+[node name="mushroomElement" type="Node" parent="."]
+
+[node name="mushroom" parent="mushroomElement" instance=ExtResource("4_lbhrr")]
+position = Vector2(216, -40)
+
+[node name="mushroom2" parent="mushroomElement" instance=ExtResource("4_lbhrr")]
+position = Vector2(801, -67)
+
+[node name="mushroom3" parent="mushroomElement" instance=ExtResource("4_lbhrr")]
+position = Vector2(1373, -88)
