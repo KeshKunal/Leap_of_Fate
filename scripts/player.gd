@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 50.0
+const JUMP_VELOCITY = -100.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,9 +19,24 @@ func _physics_process(delta: float) -> void:
 	# Gets input direction -1/0/1
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction > 0:
-		animated_sprite.flip_h = flase
-	if direction <0:
+		animated_sprite.flip_h = false
+	elif direction <0:
 		animated_sprite.flip_h = true
+		
+	if is_on_floor():
+		if direction == 0:
+			# If not already playing "idle", play it.
+			if animated_sprite.animation != "idle":
+				animated_sprite.play("idle")
+		else:
+			# If not already playing "run", play it.
+			if animated_sprite.animation != "run":
+				animated_sprite.play("run")
+	else:
+		# If not already playing "jump", play it.
+		if animated_sprite.animation != "jump":
+			animated_sprite.play("jump")
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
